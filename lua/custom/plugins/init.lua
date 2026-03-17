@@ -74,14 +74,14 @@ return {
       words = { enabled = true },
     },
     keys = {
-      { '<leader>sp', function() Snacks.picker() end, desc = 'Snacks [P]icker' },
-      { '<leader>ff', function() Snacks.picker.files() end, desc = '[F]ind [F]iles' },
-      { '<leader>sg', function() Snacks.picker.grep() end, desc = '[S]earch [G]rep' },
-      { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = '[S]earch [D]iagnostics' },
-      { '<leader>sk', function() Snacks.picker.keymaps() end, desc = '[S]earch [K]eymaps' },
-      { '<leader>n', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
-      { '<leader>bd', function() Snacks.bufdelete() end, desc = '[B]uffer [D]elete' },
-      { '<leader>gg', function() Snacks.lazygit() end, desc = 'LazyGit' },
+      { '<leader>sp', function() require('snacks').picker() end, desc = 'Snacks [P]icker' },
+      { '<leader>ff', function() require('snacks').picker.files() end, desc = '[F]ind [F]iles' },
+      { '<leader>sg', function() require('snacks').picker.grep() end, desc = '[S]earch [G]rep' },
+      { '<leader>sd', function() require('snacks').picker.diagnostics() end, desc = '[S]earch [D]iagnostics' },
+      { '<leader>sk', function() require('snacks').picker.keymaps() end, desc = '[S]earch [K]eymaps' },
+      { '<leader>n', function() require('snacks').notifier.show_history() end, desc = 'Notification History' },
+      { '<leader>bd', function() require('snacks').bufdelete() end, desc = '[B]uffer [D]elete' },
+      { '<leader>gg', function() require('snacks').lazygit() end, desc = 'LazyGit' },
     },
   },
 
@@ -121,7 +121,7 @@ return {
     keys = {
       { 'p', '<Plug>(YankyPutAfter)', mode = { 'n', 'x' }, desc = 'Put after' },
       { 'P', '<Plug>(YankyPutBefore)', mode = { 'n', 'x' }, desc = 'Put before' },
-      { '<leader>sy', function() Snacks.picker.grep({ prompt = "Yank History", cmd = "YankyList" }) end, desc = '[S]earch [Y]ank History' },
+      { '<leader>sy', function() require('snacks').picker.grep({ prompt = "Yank History", cmd = "YankyList" }) end, desc = '[S]earch [Y]ank History' },
     },
   },
 
