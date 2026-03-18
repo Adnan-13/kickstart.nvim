@@ -19,11 +19,35 @@ return {
   ---@module 'neo-tree'
   ---@type neotree.Config
   opts = {
+    window = {
+      auto_expand_width = true,
+    },
     filesystem = {
+      use_libuv_file_watcher = true,
+      filtered_items = {
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
+      group_empty_dirs = true, -- optional: groups empty folders
+      follow_current_file = { enabled = true },
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
+      },
+    },
+    default_component_configs = {
+      container = {
+        enable_character_fade = true,
+      },
+      last_modified = {
+        enabled = false, -- Disable last modified to save space
+      },
+      indent = {
+        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+        expander_collapsed = '',
+        expander_expanded = '',
+        expander_highlight = 'NeoTreeExpander',
       },
     },
   },
