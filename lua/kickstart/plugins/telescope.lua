@@ -38,7 +38,8 @@ return {
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>sc', builtin.commands, { desc = '[S]earch [C]ommands' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[ ] Find files' })
+      vim.keymap.set('n', '<leader>,', builtin.buffers, { desc = '[,] Find existing buffers' })
 
       -- Telescope LSP mappings (LspAttach)
       vim.api.nvim_create_autocmd('LspAttach', {
