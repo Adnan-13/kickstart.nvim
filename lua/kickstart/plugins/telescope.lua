@@ -16,6 +16,17 @@ return {{ -- Fuzzy Finder (files, lsp, etc)
     }},
     config = function()
         require('telescope').setup {
+            defaults = {
+                file_ignore_patterns = {'node_modules', '%.git[\\/]', '.angular[\\/]', 'dist[\\/]', 'build[\\/]',
+                                        'target[\\/]', '%.ipynb'}
+            },
+            pickers = {
+                find_files = {
+                    hidden = true,
+                    -- Use fd to find files, but exclude .git while keeping other hidden files
+                    find_command = {"fd", "--type", "f", "--strip-cwd-prefix", "--hidden", "--exclude", ".git"}
+                }
+            },
             extensions = {
                 ['ui-select'] = {require('telescope.themes').get_dropdown()}
             }
@@ -57,8 +68,12 @@ return {{ -- Fuzzy Finder (files, lsp, etc)
         vim.keymap.set('n', '<leader>sc', builtin.commands, {
             desc = '[S]earch [C]ommands'
         })
+        -- Community standard for "Find File" is often <leader>p or <C-p> or <leader><leader>
         vim.keymap.set('n', '<leader><leader>', builtin.find_files, {
-            desc = '[ ] Find files'
+            desc = '[ ] Find files (respects .gitignore)'
+        })
+        vim.keymap.set('n', '<C-p>', builtin.find_files, {
+            desc = 'Search Files (Ctrl+p style)'
         })
         vim.keymap.set('n', '<leader>,', builtin.buffers, {
             desc = '[,] Find existing buffers'
