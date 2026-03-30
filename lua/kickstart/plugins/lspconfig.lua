@@ -76,7 +76,13 @@ return {{
 
         local servers = {
             pyright = {},
-            angularls = {},
+            ts_ls = {
+                enabled = false -- Handled by typescript-tools
+            },
+            angularls = {
+                -- Only start angularls in Angular/Nx projects
+                root_dir = require('lspconfig').util.root_pattern('angular.json', 'nx.json'),
+            },
             stylua = {},
             lua_ls = {
                 on_init = function(client)

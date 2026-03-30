@@ -1,8 +1,21 @@
 return {{
     'pmizio/typescript-tools.nvim',
     dependencies = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
-    opts = {
-        settings = {
+    config = function(_, opts)
+        local lspconfig = require('lspconfig')
+        -- Root pattern for Angular projects
+        local is_angular = lspconfig.util.root_pattern('angular.json', 'nx.json')
+
+        -- Only load typescript-tools if it's NOT an Angular project
+        -- because Angular projects should use angularls which handles TS
+        require('typescript-tools').setup(vim.tbl_extend('force', opts, {
+            on_attach = function(client, bufnr)
+                if is_angular(vim.api.nvim_buf_get_name(bufnr)) then
+                    client.stop()
+                    return
+                end
+            end,
+            settings = {
             -- spawn additional tsserver instance to calculate diagnostics on it
             separate_diagnostic_server = true,
             -- "change"|"insert_leave" determine when the client asks the server about diagnostic
