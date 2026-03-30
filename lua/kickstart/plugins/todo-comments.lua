@@ -1,12 +1,12 @@
 ---@module 'lazy'
 ---@type LazySpec
-return {
-  {
+return {{
     'folke/todo-comments.nvim',
     event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    dependencies = {'nvim-lua/plenary.nvim'},
     ---@module 'todo-comments'
     ---@type TodoOptions
-    opts = { signs = false },
-  },
-}
+    opts = {
+        signs = false
+    }
+}}
