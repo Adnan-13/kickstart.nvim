@@ -23,7 +23,16 @@ return {
     ---@type neotree.Config
     opts = {
         window = {
-            auto_expand_width = true
+            auto_expand_width = true,
+            mappings = {
+                -- Show full path in a notification popup (floating)
+                ['zh'] = function(state)
+                    local node = state.tree:get_node()
+                    vim.notify(node.path, vim.log.levels.INFO, {
+                        title = 'Path'
+                    })
+                end
+            }
         },
         filesystem = {
             use_libuv_file_watcher = true,
