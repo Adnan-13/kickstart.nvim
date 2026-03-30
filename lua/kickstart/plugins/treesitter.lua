@@ -6,8 +6,11 @@ return {{
     build = ':TSUpdate',
     branch = 'main',
     opts = {
-        ensure_installed = {'bash', 'c', 'diff', 'html', 'javascript', 'jsdoc', 'json', 'lua', 'luadoc', 'markdown',
-                            'markdown_inline', 'query', 'typescript', 'tsx', 'vim', 'vimdoc', 'yaml'},
+        ensure_installed = {
+            'angular', 'bash', 'c', 'diff', 'html', 'javascript', 'jsdoc', 'json', 'lua', 
+            'luadoc', 'markdown', 'markdown_inline', 'query', 'typescript', 'tsx', 
+            'vim', 'vimdoc', 'yaml', 'css', 'scss', 'jsonc'
+        },
         auto_install = true,
         highlight = {
             enable = true,
