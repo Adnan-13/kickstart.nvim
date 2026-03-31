@@ -70,6 +70,34 @@ return {{ -- Autoformat
                 'prettierd',
                 'prettier',
                 stop_after_first = true
+            },
+            json = {
+                'prettierd',
+                'prettier',
+                stop_after_first = true
+            },
+            yaml = {
+                'prettierd',
+                'prettier',
+                stop_after_first = true
+            },
+            markdown = {
+                'prettierd',
+                'prettier',
+                stop_after_first = true
+            }
+        },
+        formatters = {
+            prettier = {
+                prepend_args = {
+                    '--tab-width', '4', '--single-quote', '--jsx-single-quote',
+                    '--single-attribute-per-line', '--no-bracket-spacing'
+                }
+            },
+            prettierd = {
+                env = {
+                    PRETTIERD_DEFAULT_CONFIG = vim.fn.expand('~/.prettierrc.json')
+                }
             }
         }
     }

@@ -1,0 +1,14 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{js,ts,jsx,tsx,html,css,json,yml,yaml,md,angular}]
+indent_size = 4
+single_quote = true
+jsx_single_quote = true
+single_attribute_per_line = true
