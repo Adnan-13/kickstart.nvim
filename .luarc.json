@@ -1,0 +1,36 @@
+{
+    "Lua.diagnostics.globals": [
+        "vim"
+    ],
+    "Lua.workspace.library": [
+        "$(VIMRUNTIME)/lua",
+        "${3rd}/luv/library",
+        "${3rd}/busted/library"
+    ],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.telemetry.enable": false,
+    "Lua.diagnostics.disable": [
+        "undefined-doc-name",
+        "missing-fields"
+    ],
+    "Lua.diagnostics.neededFileStatus": {
+        "undefined-doc-name": "None"
+    },
+    "Lua.doc.packageName": [
+        "oil",
+        "Flash",
+        "snacks",
+        "blink.cmp",
+        "conform",
+        "Gitsigns",
+        "neotree",
+        "AutoSession",
+        "wk"
+    ],
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.workspace.ignoreSubmodules": true,
+    "Lua.diagnostics.groupSeverity": {
+        "type-check": "Information"
+    },
+    "Lua.diagnostics.ignoredFiles": "Opened"
+}

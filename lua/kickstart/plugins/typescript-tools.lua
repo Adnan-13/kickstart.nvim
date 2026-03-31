@@ -3,8 +3,10 @@ return {{
     dependencies = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'},
     config = function(_, opts)
         local lspconfig = require('lspconfig')
+        ---@diagnostic disable-next-line: undefined-field
+        local util = lspconfig.util
         -- Root pattern for Angular projects
-        local is_angular = lspconfig.util.root_pattern('angular.json', 'nx.json')
+        local is_angular = util.root_pattern('angular.json', 'nx.json')
 
         -- Only load typescript-tools if it's NOT an Angular project
         -- because Angular projects should use angularls which handles TS
