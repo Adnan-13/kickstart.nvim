@@ -1,3 +1,6 @@
--- Disable Node provider to silence health check warnings since it's not needed for this stack
--- Community standard way to silence provider warnings in internal config
-vim.g.loaded_node_provider = 0
+-- Dynamically detect Node.js host path
+if vim.fn.executable('neovim-node-host') == 1 then
+  vim.g.node_host_prog = vim.fn.exepath('neovim-node-host')
+end
+
+vim.g.loaded_node_provider = nil
