@@ -7,6 +7,12 @@ vim.g.maplocalleader = ' '
 -- Ensure true color support for better syntax highlighting
 vim.opt.termguicolors = true
 
+-- Specify the Python provider to use a dedicated venv
+vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/python_provider/bin/python3")
+
+-- Disable Perl provider to silence health check warnings
+vim.g.loaded_perl_provider = 0
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 

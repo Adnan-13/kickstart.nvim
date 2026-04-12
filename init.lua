@@ -1,7 +1,12 @@
 --[[
 Kickstart Modular Configuration
 See `:help lazy.nvim.txt` for details.
---]] -- Load basic settings and keymaps from lua/config/
+--]]
+
+-- Load node provider settings
+require 'config.node_provider'
+
+-- Load basic settings and keymaps from lua/config/
 require 'config.options'
 require 'config.keymaps'
 
@@ -22,6 +27,9 @@ require('lazy').setup({{
 }, {
     import = 'custom.plugins'
 }}, {
+    rocks = {
+        enabled = false
+    },
     ui = {
         icons = vim.g.have_nerd_font and {} or {
             cmd = '⌘',

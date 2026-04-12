@@ -8,7 +8,7 @@ return {{
     opts = {
         ensure_installed = {'angular', 'bash', 'c', 'diff', 'html', 'javascript', 'jsdoc', 'json', 'lua', 'luadoc',
                             'markdown', 'markdown_inline', 'query', 'typescript', 'tsx', 'vim', 'vimdoc', 'yaml', 'css',
-                            'scss', 'jsonc'},
+                            'scss', 'jsonc', 'regex', 'svelte', 'vue', 'sql'},
         auto_install = true,
         highlight = {
             enable = true,

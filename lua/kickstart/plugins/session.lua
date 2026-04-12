@@ -4,20 +4,19 @@ return {
     ---@module "auto-session"
     ---@type AutoSession.Config
     opts = {
-        suppressed_dirs = {'~/', '~/Projects', '~/Downloads', '/'},
+        suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
         log_level = 'error',
         auto_restore_last_session = false,
-        auto_session_suppress_dirs = {'~/', '~/Projects', '~/Downloads', '/'},
 
         -- Session lens configuration for easy searching
         session_lens = {
-            -- If telescope is installed, use it as picker
+            -- Use Snacks picker if available
             load_on_setup = true,
-            theme_conf = {
-                border = true
+            picker_opts = {
+                border = true,
             },
-            previewer = false
-        }
+            previewer = false,
+        },
     },
     config = function(_, opts)
         -- Recommended sessionoptions for better restoration
