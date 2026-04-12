@@ -1,13 +1,41 @@
-tags
-test.sh
-.luarc.json
-nvim
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
+# Editor directories and files
+.vscode/
+.idea/
+
+# Vim/Neovim generated files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+*~
+*.un~
+.netrwhist
+Session.vim
+Sessionx.vim
+tags
 spell/
 
-# You likely want to comment this, since it's recommended to track lazy-lock.json in version
-# control, see https://lazy.folke.io/usage/lockfile
-# For kickstart, it makes sense to leave it ignored.
-# lazy-lock.json
+# Neovim specific / auto-generated logs 
+*.log
+lsp.log
+.nvim/
+.nvim.lua
 
-.DS_Store
+# Local LuaLS configuration
+.luarc.json
+.luacheckrc
+
+# Kickstart specific / development
+nvim
+test.sh
+debug/
+.repro/
