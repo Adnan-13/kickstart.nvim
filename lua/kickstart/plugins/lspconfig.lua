@@ -84,6 +84,16 @@ return {{
                 root_dir = require('lspconfig').util.root_pattern('angular.json', 'nx.json')
             },
             stylua = {},
+            yamlls = {
+                settings = {
+                    yaml = {
+                        schemas = {
+                            ['https://json.schemastore.org/github-workflow.json'] = '/.github/workflows/*',
+                            ['https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json'] = 'k8s/*.yaml',
+                        },
+                    },
+                },
+            },
             lua_ls = {
                 on_init = function(client)
                     if client.workspace_folders then
