@@ -1,5 +1,5 @@
----@module 'lazy'
----@type LazySpec
+
+
 return {{ -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     enabled = true,

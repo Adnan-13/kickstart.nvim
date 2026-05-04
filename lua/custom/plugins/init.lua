@@ -2,8 +2,6 @@ return {
   -- Productivity: File navigation
   {
     'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
     opts = {
       default_file_explorer = true,
       columns = {
@@ -27,7 +25,6 @@ return {
   {
     'folke/flash.nvim',
     event = 'VeryLazy',
-    ---@type Flash.Config
     opts = {},
     -- stylua: ignore
     keys = {
@@ -43,7 +40,6 @@ return {
     'folke/snacks.nvim',
     priority = 1000,
     lazy = false,
-    ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
       dashboard = { enabled = true },

@@ -1,5 +1,5 @@
----@module 'lazy'
----@type LazySpec
+
+
 return {{ -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
@@ -15,8 +15,8 @@ return {{ -- Autocompletion
         end)(),
         opts = {}
     }},
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
+
+
     opts = {
         keymap = {
             preset = 'default'
@@ -28,7 +28,18 @@ return {{ -- Autocompletion
             documentation = {
                 auto_show = false,
                 auto_show_delay_ms = 500
-            }
+            },
+            menu = {
+                draw = {
+                    columns = {
+                        { 'label', 'label_description', gap = 1 },
+                        { 'kind_icon', 'kind' },
+                    },
+                },
+            },
+        },
+        cmdline = {
+            enabled = false
         },
         sources = {
             default = {'lsp', 'path', 'snippets'}
