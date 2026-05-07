@@ -45,9 +45,42 @@ vim.o.mouse = 'a'
 vim.o.showmode = false
 
 -- Sync clipboard
-vim.schedule(function()
-    vim.o.clipboard = 'unnamedplus'
-end)
+vim.o.clipboard = 'unnamedplus'
+
+-- Optimizing clipboard for Windows (WSL and powershell)
+-- win32yank is the superior standard for performance and reliability (no ^M issues)
+if vim.fn.has('win32') == 1 or vim.fn.has('wsl') == 1 then
+    if vim.fn.executable('win32yank.exe') == 1 then
+        vim.g.clipboard = {
+            name = 'win32yank-local',
+            copy = {
+                ['+'] = 'win32yank.exe -i --crlf',
+                ['*'] = 'win32yank.exe -i --crlf',
+            },
+            paste = {
+                ['+'] = 'win32yank.exe -o --lf',
+                ['*'] = 'win32yank.exe -o --lf',
+            },
+            cache_enabled = 0,
+        }
+    else
+        local clipboard_exe = vim.fn.executable('pwsh') == 1 and 'pwsh.exe' or 'powershell.exe'
+        -- Using [Console]::Out.Write replaces Write-Output to avoid trailing newlines
+        -- .TrimEnd() is added to handle edge cases with trailing nulls/^M from certain sources
+        vim.g.clipboard = {
+            name = 'PowershellClipboard',
+            copy = {
+                ['+'] = clipboard_exe .. ' -NoLogo -NoProfile -Command "$input | Set-Clipboard"',
+                ['*'] = clipboard_exe .. ' -NoLogo -NoProfile -Command "$input | Set-Clipboard"',
+            },
+            paste = {
+                ['+'] = clipboard_exe .. ' -NoLogo -NoProfile -Command "[Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace(\"`r`n\", \"`n\"))"',
+                ['*'] = clipboard_exe .. ' -NoLogo -NoProfile -Command "[Console]::Out.Write($(Get-Clipboard -Raw).ToString().Replace(\"`r`n\", \"`n\"))"',
+            },
+            cache_enabled = 0,
+        }
+    end
+end
 
 -- Enable break indent
 vim.o.breakindent = true

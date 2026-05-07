@@ -25,8 +25,11 @@ return {{
                 end
 
                 map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+                map('<leader>rn', vim.lsp.buf.rename, '[R]ename')
                 map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', {'n', 'x'})
+                map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', {'n', 'x'})
                 map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+                map('<leader>cf', function() vim.lsp.buf.format() end, '[C]ode [F]ormat')
 
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client:supports_method('textDocument/documentHighlight', event.buf) then
