@@ -1,41 +1,8 @@
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# Editor directories and files
-.vscode/
-.idea/
-
-# Vim/Neovim generated files
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-*~
-*.un~
-.netrwhist
-Session.vim
-Sessionx.vim
-tags
-spell/
-
-# Neovim specific / auto-generated logs 
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
 *.log
-lsp.log
-.nvim/
-.nvim.lua
-
-# Local LuaLS configuration
-.luarc.json
-.luacheckrc
-
-# Kickstart specific / development
-nvim
-test.sh
-debug/
-.repro/
+data
