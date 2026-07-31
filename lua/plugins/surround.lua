@@ -1,8 +1,8 @@
--- mini.surround isn't enabled by LazyVim's core config, only via this extra.
+-- The coding.mini-surround extra itself is imported in lua/config/lazy.lua
+-- (LazyVim extras must be top-level imports, not nested in lua/plugins/*.lua
+-- files). This file just remaps it from the default `gs*` prefix to a
+-- leader-driven menu.
 return {
-  { import = "lazyvim.plugins.extras.coding.mini-surround" },
-
-  -- Remap from the default `gs*` prefix to a leader-driven menu.
   -- NOTE: intentionally `<leader>S` (capital), not `<leader>s` — LazyVim's own
   -- which-key spec already reserves lowercase `<leader>s` for "search" (grep,
   -- diagnostics, grug-far's `<leader>sr`, todo-comments' `<leader>st`, etc.),

@@ -1,9 +1,8 @@
--- YAML support. Uses LazyVim's own yaml extra (SchemaStore.nvim auto-detects
--- most schemas), plus the two explicit schema mappings the old config pinned
--- by hand for a Kubernetes manifests folder and GitHub Actions workflows.
+-- YAML support. The lang.yaml extra itself is imported in lua/config/lazy.lua
+-- (SchemaStore.nvim auto-detects most schemas); this file just adds the two
+-- explicit schema mappings the old config pinned by hand for a Kubernetes
+-- manifests folder and GitHub Actions workflows.
 return {
-  { import = "lazyvim.plugins.extras.lang.yaml" },
-
   {
     "neovim/nvim-lspconfig",
     opts = {
