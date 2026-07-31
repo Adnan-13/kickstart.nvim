@@ -74,6 +74,13 @@ return {
     end,
   },
 
+  -- Ensure mason actually installs prettierd - configuring conform to use it
+  -- (below) isn't enough on its own, mason needs it in ensure_installed too.
+  {
+    "mason-org/mason.nvim",
+    opts = { ensure_installed = { "prettierd" } },
+  },
+
   -- Formatting to match the old prettier setup (4-space, single quotes, etc.)
   {
     "stevearc/conform.nvim",
