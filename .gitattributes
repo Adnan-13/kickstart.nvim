@@ -1,0 +1,9 @@
+# Force LF line endings for scripts that must run correctly on Linux/WSL,
+# regardless of the cloning machine's core.autocrlf setting. Without this,
+# a Windows checkout can silently reintroduce CRLF into bootstrap/setup.sh,
+# which breaks bash outright ("syntax error near unexpected token").
+*.sh text eol=lf
+
+# Let git decide sensibly for everything else, rather than leaving line
+# endings entirely up to each contributor's local autocrlf setting.
+* text=auto
