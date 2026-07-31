@@ -5,12 +5,18 @@
 -- Windows platform-correctness fixes (not preferences - needed regardless of
 -- editor distro to make providers and clipboard work correctly on Windows).
 
--- Dedicated Python venv, and silence Perl/Ruby provider health-check noise
-if vim.fn.has("win32") == 1 then
-  vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/python_provider/Scripts/python.exe")
-else
-  vim.g.python3_host_prog = vim.fn.expand("~/.local/share/nvim/python_provider/bin/python3")
+-- Dedicated Python venv, if one has been provisioned (see bootstrap/ scripts).
+-- Only point at it if it actually exists - pointing vim.g.python3_host_prog at
+-- a missing path breaks the provider outright instead of falling back to
+-- Neovim's own python3-on-PATH auto-detection, which works fine without a
+-- dedicated venv for basic :python3/pynvim usage.
+local python_venv = vim.fn.has("win32") == 1 and vim.fn.expand("~/.local/share/nvim/python_provider/Scripts/python.exe")
+  or vim.fn.expand("~/.local/share/nvim/python_provider/bin/python3")
+if vim.fn.filereadable(python_venv) == 1 then
+  vim.g.python3_host_prog = python_venv
 end
+
+-- Silence Perl/Ruby provider health-check noise (neither is used here)
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
