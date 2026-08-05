@@ -48,6 +48,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.docker" },
     -- Docstring/annotation generator from function signatures (<leader>cn)
     { import = "lazyvim.plugins.extras.coding.neogen" },
+    -- Explicit snacks-based picker (already the effective default; octo.nvim
+    -- below requires one of the picker extras to be enabled, not just present)
+    { import = "lazyvim.plugins.extras.editor.snacks_picker" },
+    -- Manage GitHub issues/PRs from inside Neovim (<leader>gi/gp/gr/...)
+    { import = "lazyvim.plugins.extras.util.octo" },
     -- import/override with your plugins
     { import = "plugins" },
   },
