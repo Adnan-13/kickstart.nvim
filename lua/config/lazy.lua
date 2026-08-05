@@ -58,6 +58,9 @@ require("lazy").setup({
     -- Debug Adapter Protocol core (nvim-dap, dap-ui, mason-nvim-dap): <leader>d*
     -- Python/JS-TS adapters are configured in lua/plugins/dap.lua
     { import = "lazyvim.plugins.extras.dap.core" },
+    -- Test runner core (neotest): <leader>t*
+    -- Python/JS-TS adapters are configured in lua/plugins/test.lua
+    { import = "lazyvim.plugins.extras.test.core" },
     -- import/override with your plugins
     { import = "plugins" },
   },
