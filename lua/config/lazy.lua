@@ -36,6 +36,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.startuptime" },
     -- Symbols outline sidebar (<leader>cs)
     { import = "lazyvim.plugins.extras.editor.aerial" },
+    -- Highlight other references to the word under the cursor ([[ / ]])
+    { import = "lazyvim.plugins.extras.editor.illuminate" },
     -- import/override with your plugins
     { import = "plugins" },
   },
