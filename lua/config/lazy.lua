@@ -44,6 +44,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.refactoring" },
     -- REST client for .http files (<leader>R*)
     { import = "lazyvim.plugins.extras.util.rest" },
+    -- Dockerfile/compose LSP (dockerls, docker-compose) + hadolint linting
+    { import = "lazyvim.plugins.extras.lang.docker" },
     -- import/override with your plugins
     { import = "plugins" },
   },
