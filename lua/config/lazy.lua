@@ -24,6 +24,16 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.ai.copilot" },
+    -- Harpoon: pin/jump between a small working set of files (<leader>H*)
+    { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    -- Sticky function/class header pinned at the top while scrolling
+    { import = "lazyvim.plugins.extras.ui.treesitter-context" },
+    -- Live-preview LSP rename (:IncRename) across all occurrences
+    { import = "lazyvim.plugins.extras.editor.inc-rename" },
+    -- Smarter <C-a>/<C-x> increment-decrement (dates, booleans, semver, ...)
+    { import = "lazyvim.plugins.extras.editor.dial" },
+    -- Adds :StartupTime to profile plugin load time
+    { import = "lazyvim.plugins.extras.util.startuptime" },
     -- import/override with your plugins
     { import = "plugins" },
   },
