@@ -38,6 +38,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.aerial" },
     -- Highlight other references to the word under the cursor ([[ / ]])
     { import = "lazyvim.plugins.extras.editor.illuminate" },
+    -- Lua-native task runner (<leader>ow/oo/ot)
+    { import = "lazyvim.plugins.extras.editor.overseer" },
     -- import/override with your plugins
     { import = "plugins" },
   },
