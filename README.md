@@ -43,6 +43,20 @@ actually working, not just present.
 
 ## Manual prerequisites the bootstrap scripts don't cover
 
+- Neovim itself. On Windows, install/update via
+  [Scoop](https://scoop.sh/) - the community-recommended option (no admin
+  rights, no registry writes, easy in-place updates):
+  ```powershell
+  scoop bucket add main   # if not already added
+  scoop install neovim    # install
+  scoop update neovim     # update to the latest stable release later
+  ```
+  Winget (`winget install/upgrade Neovim.Neovim`) and Chocolatey
+  (`choco install/upgrade neovim`) both work too, but don't mix installers -
+  pick one so `nvim` on PATH always resolves to a single, known install.
+  On Linux, distro repos are often stale; prefer the
+  [official PPA](https://github.com/neovim/neovim/blob/master/INSTALL.md#ubuntu),
+  an AppImage, or a version manager like [bob](https://github.com/MordechaiHadad/bob).
 - A [Nerd Font](https://www.nerdfonts.com/) installed and selected in your
   terminal (can't be verified or installed by a script reliably).
 - `:Copilot auth` once, interactively, to authorize GitHub Copilot.
