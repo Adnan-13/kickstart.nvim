@@ -33,6 +33,16 @@ if vim.fn.has("win32") == 1 then
   end
 end
 
+-- Treesitter parser compiles: tree-sitter-cli auto-detects a C compiler, and
+-- on Windows that's often cl.exe (MSVC) if VS build tools are on PATH. MSVC's
+-- optimizer runs out of heap space ("error C1002") on some large generated
+-- parser.c files (e.g. gitcommit) that zig/gcc compile without issue. Prefer
+-- gcc explicitly when available so parser installs are reliable regardless of
+-- what other compilers happen to be on this machine's PATH.
+if vim.fn.has("win32") == 1 and vim.env.CC == nil and vim.fn.executable("gcc") == 1 then
+  vim.env.CC = "gcc"
+end
+
 -- Clipboard: prefer win32yank.exe (no ^M issues), fall back to a PowerShell
 -- wrapper that strips \r\n on paste.
 if vim.fn.has("win32") == 1 or vim.fn.has("wsl") == 1 then
