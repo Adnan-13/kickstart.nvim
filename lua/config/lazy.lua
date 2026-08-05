@@ -34,6 +34,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.dial" },
     -- Adds :StartupTime to profile plugin load time
     { import = "lazyvim.plugins.extras.util.startuptime" },
+    -- Symbols outline sidebar (<leader>cs)
+    { import = "lazyvim.plugins.extras.editor.aerial" },
     -- import/override with your plugins
     { import = "plugins" },
   },
