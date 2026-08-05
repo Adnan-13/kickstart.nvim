@@ -55,6 +55,9 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.octo" },
     -- SQL: dadbod DB client/completion/UI (<leader>D), sqlfluff lint/format
     { import = "lazyvim.plugins.extras.lang.sql" },
+    -- Debug Adapter Protocol core (nvim-dap, dap-ui, mason-nvim-dap): <leader>d*
+    -- Python/JS-TS adapters are configured in lua/plugins/dap.lua
+    { import = "lazyvim.plugins.extras.dap.core" },
     -- import/override with your plugins
     { import = "plugins" },
   },
