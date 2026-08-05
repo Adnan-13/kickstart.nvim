@@ -42,6 +42,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.overseer" },
     -- Extract func/var, inline var, debug print (<leader>r*)
     { import = "lazyvim.plugins.extras.editor.refactoring" },
+    -- REST client for .http files (<leader>R*)
+    { import = "lazyvim.plugins.extras.util.rest" },
     -- import/override with your plugins
     { import = "plugins" },
   },
