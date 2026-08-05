@@ -40,6 +40,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.illuminate" },
     -- Lua-native task runner (<leader>ow/oo/ot)
     { import = "lazyvim.plugins.extras.editor.overseer" },
+    -- Extract func/var, inline var, debug print (<leader>r*)
+    { import = "lazyvim.plugins.extras.editor.refactoring" },
     -- import/override with your plugins
     { import = "plugins" },
   },
