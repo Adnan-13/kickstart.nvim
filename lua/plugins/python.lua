@@ -34,6 +34,23 @@ return {
     opts = { ensure_installed = { "ruff" } },
   },
 
+  -- Point pyright at an interpreter per project (<leader>cv). Repos here
+  -- declare dependencies in pyproject.toml but run them in Docker, so there is
+  -- no venv beside the source and pyright resolves local modules while every
+  -- third-party import (fastapi, structlog, ...) comes back unresolved. Picking
+  -- the interpreter once per project fixes goto-definition/hover for them.
+  {
+    "linux-cultist/venv-selector.nvim",
+    cmd = "VenvSelect",
+    ft = "python",
+    opts = {
+      options = {
+        notify_user_on_venv_activation = true,
+      },
+    },
+    keys = { { "<leader>cv", "<cmd>VenvSelect<cr>", desc = "Select VirtualEnv", ft = "python" } },
+  },
+
   -- Formatting goes through conform (same as the prettierd setup in
   -- typescript.lua) rather than the LSP, so `ruff format` is invoked directly
   -- and import sorting can run as an explicit first pass.
