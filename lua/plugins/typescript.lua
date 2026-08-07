@@ -61,7 +61,6 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "angular",
         "jsdoc",
-        "jsonc",
         "regex",
         "svelte",
         "vue",
