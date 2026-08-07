@@ -110,6 +110,12 @@ directly or the plugin was just checked for load errors.
   `gitcommit`) if `cl.exe` is first on PATH. Fixed by forcing
   `vim.env.CC = "gcc"` on Windows in `lua/config/options.lua` — don't
   remove that without confirming MSVC handles all current parsers.
+- **`:checkhealth vim.provider` pyenv warning on Windows** ("Failed to infer
+  the root of pyenv by running `pyenv root`") is a false positive, not a broken
+  install. That probe assumes Unix pyenv; pyenv-win has never implemented a
+  `root` subcommand (`pyenv commands` confirms it isn't in the list). The
+  Python provider is pinned explicitly via `vim.g.python3_host_prog` anyway.
+  Don't try to "fix" pyenv over it.
 - **`nvim-dap` adapter executables on Windows**: Mason installs
   `debugpy-adapter`/`js-debug-adapter` as `.CMD` shims. `nvim-dap` spawns
   commands directly via libuv with no PATHEXT resolution, so bare command

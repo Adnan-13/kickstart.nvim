@@ -94,6 +94,13 @@ function M.check()
       "Run bootstrap/setup to create one, or ignore if you don't need :python3.",
     })
   end
+  if is_windows() and exe("pyenv") then
+    -- :checkhealth vim.provider warns that it "failed to infer the root of
+    -- pyenv by running `pyenv root`". That check assumes Unix pyenv; pyenv-win
+    -- has never implemented a `root` subcommand, so the warning fires even on a
+    -- perfectly healthy install and can be ignored.
+    vim.health.info("pyenv-win detected: the builtin `pyenv root` provider warning is expected, not a fault")
+  end
 
   vim.health.start("Clipboard")
   if is_windows() then
