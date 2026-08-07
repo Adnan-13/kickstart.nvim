@@ -7,16 +7,13 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
     config = function(_, opts)
-      local lspconfig = require("lspconfig")
-      local is_angular = lspconfig.util.root_pattern("angular.json", "nx.json")
-
+      -- Runs in Angular projects too, alongside angularls. angularls only
+      -- understands Angular's own constructs (templates, components, DI); it
+      -- advertises definitionProvider/hoverProvider but throws
+      -- "Cannot read properties of undefined (reading 'parent')" on ordinary
+      -- TypeScript symbols, so stopping tsserver there leaves `gd`/`K` dead in
+      -- every .ts file. The two servers are complements, not alternatives.
       require("typescript-tools").setup(vim.tbl_deep_extend("force", opts, {
-        -- Angular projects use angularls (below) to handle TS instead
-        on_attach = function(client, bufnr)
-          if is_angular(vim.api.nvim_buf_get_name(bufnr)) then
-            client.stop()
-          end
-        end,
         settings = {
           separate_diagnostic_server = true,
           publish_diagnostic_on = "insert_leave",
