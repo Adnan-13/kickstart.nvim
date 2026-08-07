@@ -69,6 +69,10 @@ if (Get-Command npm -ErrorAction SilentlyContinue) {
   # preview and does not ship tsserver.js, which typescript-tools.nvim needs.
   Install-NpmGlobal "typescript@5" "typescript@5 (tsserver for typescript-tools.nvim)"
   Install-NpmGlobal "neovim" "neovim npm package (Node.js provider)"
+  # nvim-dap launches .ts files through a TypeScript-aware runtime (see
+  # lua/plugins/dap.lua). Without tsx or ts-node on PATH the adapter starts and
+  # immediately disconnects, so TS debugging fails while plain JS still works.
+  Install-NpmGlobal "tsx" "tsx (TypeScript runtime for nvim-dap launches)"
 } else {
   Write-Warn2 "npm not found - skipping global npm installs. Re-run after Node.js is on PATH."
 }

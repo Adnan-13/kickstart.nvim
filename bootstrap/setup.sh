@@ -128,6 +128,10 @@ if have npm; then
   # preview and does not ship tsserver.js, which typescript-tools.nvim needs.
   npm_install_g "typescript@5" && ok "typescript@5 installed globally (tsserver for typescript-tools.nvim)"
   npm_install_g "neovim" && ok "neovim npm package installed globally (Node.js provider)"
+  # nvim-dap launches .ts files through a TypeScript-aware runtime (see
+  # lua/plugins/dap.lua). Without tsx or ts-node on PATH the adapter starts and
+  # immediately disconnects, so TS debugging fails while plain JS still works.
+  npm_install_g "tsx" && ok "tsx installed globally (TypeScript runtime for nvim-dap launches)"
 else
   warn "npm not found - skipping global npm installs. Re-run after Node.js is on PATH."
 fi

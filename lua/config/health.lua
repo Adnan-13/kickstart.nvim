@@ -77,6 +77,16 @@ function M.check()
     else
       vim.health.ok("global typescript package found")
     end
+    -- nvim-dap runs .ts files through a TypeScript-aware runtime; without one
+    -- the adapter connects and immediately drops, so TS debugging fails while
+    -- plain JS debugging keeps working - an easy failure to misread.
+    if exe("tsx") or exe("ts-node") then
+      vim.health.ok("tsx/ts-node found (TypeScript debugging)")
+    else
+      vim.health.warn("neither tsx nor ts-node found - debugging .ts files will fail", {
+        "npm install -g tsx",
+      })
+    end
   else
     vim.health.error("node/npm not found", { "Required for typescript-tools, copilot, yamlls, angularls, prettier.", "Run bootstrap/setup." })
   end
