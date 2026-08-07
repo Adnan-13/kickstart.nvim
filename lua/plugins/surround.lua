@@ -32,4 +32,18 @@ return {
       },
     },
   },
+
+  -- LazyVim binds <leader>S to Snacks.scratch.select as a leaf. Leaving it in
+  -- place makes every bare <leader>S sit through 'timeoutlen' first, because
+  -- Vim has to wait and see whether an "a"/"d"/"r"/... is coming for one of the
+  -- surround maps above. Move the picker to <leader>> so it stays next to
+  -- <leader>. (Toggle Scratch Buffer) and <leader>S resolves immediately.
+  {
+    "folke/snacks.nvim",
+    keys = {
+      { "<leader>S", false },
+      -- stylua: ignore
+      { "<leader>>", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+    },
+  },
 }

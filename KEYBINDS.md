@@ -9,8 +9,6 @@ not all captured here - press `<Space>` and let which-key show what applies now.
 
 Modes: `n` normal, `i` insert, `v` visual+select, `x` visual, `o` operator-pending, `t` terminal.
 
-Regenerate after changing keymaps: see the note at the bottom of this file.
-
 ## Leader groups
 
 ### `<leader>b` - Buffers
@@ -236,11 +234,10 @@ Regenerate after changing keymaps: see the note at the bottom of this file.
 | `<leader>sw` | n v x | Visual selection or word (Root Dir) |
 | `<leader>sW` | n v x | Visual selection or word (cwd) |
 
-### `<leader>S` - Surround / scratch
+### `<leader>S` - Surround
 
 | Key | Modes | Action |
 | --- | --- | --- |
-| `<leader>S` | n | Select Scratch Buffer |
 | `<leader>Sa` | n v x | Add Surrounding |
 | `<leader>Sd` | n | Delete Surrounding |
 | `<leader>Sf` | n | Find Right Surrounding |
@@ -354,6 +351,7 @@ Regenerate after changing keymaps: see the note at the bottom of this file.
 | `<leader><Tab>f` | n | First Tab |
 | `<leader><Tab>l` | n | Last Tab |
 | `<leader><Tab>o` | n | Close Other Tabs |
+| `<leader>>` | n | Select Scratch Buffer |
 | `<leader>\|` | n | Split Window Right |
 
 ## Non-leader keys
