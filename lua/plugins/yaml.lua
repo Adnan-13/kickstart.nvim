@@ -12,7 +12,11 @@ return {
             yaml = {
               schemas = {
                 ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-                ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "k8s/*.yaml",
+                -- yannh's mirror, not the instrumenta one the old config pinned:
+                -- instrumenta has been archived since 2021 and its newest schema
+                -- is Kubernetes v1.18, which misvalidates anything using an
+                -- apiVersion or field added in the six years since.
+                ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.36.0-standalone-strict/all.json"] = "k8s/*.yaml",
               },
             },
           },
