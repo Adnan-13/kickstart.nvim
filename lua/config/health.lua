@@ -116,6 +116,18 @@ function M.check()
     end
   end
 
+  vim.health.start("SQL (vim-dadbod)")
+  -- dadbod shells out to a per-database CLI client rather than bundling drivers,
+  -- so <leader>D opens its UI regardless but every query fails without one.
+  if exe("sqlite3") then
+    vim.health.ok("sqlite3 found")
+  else
+    vim.health.warn("sqlite3 not found - dadbod can't query SQLite databases", {
+      "Run bootstrap/setup.",
+      "Other engines need their own client on PATH (psql, mysql, sqlcmd, ...).",
+    })
+  end
+
   vim.health.start("Terminal font")
   vim.health.info("Nerd Font can't be checked programmatically - if icons look broken, install one from https://www.nerdfonts.com/ and select it in your terminal.")
 end

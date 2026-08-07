@@ -46,6 +46,9 @@ Install-WithWinget "OpenJS.NodeJS.LTS" "Node.js LTS" "node"
 Install-WithWinget "Python.Python.3.12" "Python 3.12" "python"
 Install-WithWinget "zig.zig" "Zig (C compiler for Treesitter parsers)" "zig"
 Install-WithWinget "equalsraf.win32yank" "win32yank (fast clipboard)" "win32yank.exe"
+# vim-dadbod shells out to a per-database CLI client; without one, <leader>D
+# opens the UI but no query can run. sqlite3 covers the local-file case.
+Install-WithWinget "SQLite.SQLite" "sqlite3 (vim-dadbod query client)" "sqlite3"
 
 # Refresh PATH in this session so newly-installed tools are visible below
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")

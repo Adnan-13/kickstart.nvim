@@ -82,6 +82,13 @@ have xclip || have xsel || have wl-copy || case "$PKG_MANAGER" in
   dnf) need_pkgs+=("xclip") ;;
   pacman) need_pkgs+=("xclip") ;;
 esac
+# vim-dadbod shells out to a per-database CLI client; without one, <leader>D
+# opens the UI but no query can run. sqlite3 covers the local-file case.
+have sqlite3 || case "$PKG_MANAGER" in
+  apt) need_pkgs+=("sqlite3") ;;
+  dnf) need_pkgs+=("sqlite") ;;
+  pacman) need_pkgs+=("sqlite") ;;
+esac
 
 if [ "${#need_pkgs[@]}" -gt 0 ]; then
   step "Installing: ${need_pkgs[*]}"
