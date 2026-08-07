@@ -3,7 +3,9 @@
 Personal Neovim configuration based on [LazyVim](https://github.com/LazyVim/LazyVim)
 (migrated from a heavily customized [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 fork — see `LEGACY-FEATURES.md` and the `my-kickstart-old-config` branch for that history).
-See `README.md` for setup/installation.
+See `README.md` for setup/installation and `KEYBINDS.md` for the keybinding
+reference (generated from the live keymap table - regenerate it rather than
+hand-editing when keymaps change).
 
 This file is the canonical, cross-tool instructions file for every AI
 coding agent working in this repo (Cursor, GitHub Copilot, Claude Code,

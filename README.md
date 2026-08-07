@@ -38,6 +38,9 @@ actually working, not just present.
   menu (kept off `<leader>s`, which LazyVim reserves for search).
 - Windows-specific fixes in `lua/config/options.lua` (clipboard, Node/Python
   provider paths) that no-op on Linux.
+- `KEYBINDS.md` lists every described mapping, grouped by leader prefix -
+  generated from the live keymap table, so it reflects what's actually bound
+  rather than what was intended.
 - `LEGACY-FEATURES.md` documents what this replaced (a heavily customized
   kickstart.nvim fork) for anyone curious about the migration history.
 
